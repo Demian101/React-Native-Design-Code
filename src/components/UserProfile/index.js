@@ -12,14 +12,11 @@ const screenHeight = Dimensions.get("window").height;
 
 const { height, width } = Dimensions.get("window");
 
-
-
 export default function UserProfile() {
   const [top, setTop] = useState(new Animated.Value(height));
 
   const isOpen = useSelector(state => state.profile.profileOpen);
   const dispatch = useDispatch();
-
 
   // console.warn('toggle', toggle)   // "profileOpen": false
   // 获取 action 的构建器
@@ -33,7 +30,6 @@ export default function UserProfile() {
     }
 
     if (isOpen === true) {
-      // console.warn('isOpen === "false"')
       Animated.spring(top, {
         toValue: 54,
       }).start();
@@ -42,7 +38,6 @@ export default function UserProfile() {
   }, [isOpen]);
 
   const handleCloseMenu = () => {
-    // console.warn("handleCloseMenu", isOpen)
     dispatch(closeMenu("CLOSE_MENU"));
   }
 
