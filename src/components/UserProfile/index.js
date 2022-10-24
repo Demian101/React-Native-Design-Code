@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {closeMenu, openMenu } from "../../store/reducer/profileSlice";
 
 const screenHeight = Dimensions.get("window").height;
+// console.warn('screenHeight', screenHeight)
 
 const { height, width } = Dimensions.get("window");
 

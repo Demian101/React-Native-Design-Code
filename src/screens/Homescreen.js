@@ -102,7 +102,6 @@ export default function Homescreen () {
             {cards.map((card, index) => (
               <TouchableOpacity key={index} 
                 onPress={()=>{
-                  console.warn('CarD: ', card)
                   navigation.navigate("Sectionscreen", {
                     section: card,
                   })

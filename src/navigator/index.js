@@ -15,12 +15,11 @@ export default function Navigator() {
       <Tab.Navigator
         screenOptions={({ route, navigation }) => ({
           headerShown: false,
-        })}
-        tabBarOptions={{
           activeTintColor: "#4775f2",
           inactiveTintColor: "#ccc",
-        }}
-        mode="modal"
+          presentation: "modal"
+        })}
+        
       >
         <Tab.Screen
           name="HomeStack"

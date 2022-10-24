@@ -10,8 +10,9 @@ export default function ProjectStack() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        presentation: "modal"
       }}
-      mode="modal"
+      
     >
       <Stack.Screen name="Projects" component={ProjectsScreen} />
     </Stack.Navigator>

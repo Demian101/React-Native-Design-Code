@@ -21,8 +21,8 @@ export default function HomeStack() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        presentation: "modal"
       }}
-      mode="modal"
     >
       <Stack.Screen name="Homescreen" component={Homescreen} />
       <Stack.Screen name="Sectionscreen" component={Sectionscreen} />
