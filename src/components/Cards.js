@@ -11,7 +11,7 @@ const Card = (props) => (
       <Logo source={props.logo} />
       <Wrapper>
         <Caption>{props.caption}</Caption>
-        <Subtitle>{props.subtitle}</Subtitle>
+        <Subtitle>{props.subtitle.toUpperCase()}</Subtitle>
       </Wrapper>
     </Content>
   </Container>
@@ -39,7 +39,6 @@ const Subtitle = styled.Text`
   color: #b8bece;
   font-weight: 600;
   font-size: 15px;
-  text-transform: uppercase;
   margin-top: 4px;
 `;
 

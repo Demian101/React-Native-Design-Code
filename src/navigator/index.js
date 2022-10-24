@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
 import HomeStack from "./HomeStack";
-// import ProjectsStack from "./ProjectsStack";
+import ProjectsStack from "./ProjectsStack";
 // import CoursesStack from "./CoursesStack";
 
 const Tab = createBottomTabNavigator();
@@ -45,8 +45,7 @@ export default function Navigator() {
         />
         <Tab.Screen
           name="ProjectsStack"
-          component={HomeStack}
-          // component={ProjectsStack}
+          component={ProjectsStack}
           options={{
             title: "Projects",
             tabBarIcon: ({ color, size, focused }) => {

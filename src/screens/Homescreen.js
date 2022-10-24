@@ -93,7 +93,7 @@ export default function Homescreen () {
               <Logo key={index} image={logo.image} text={logo.text} />
             ))}
           </ScrollView>
-          <Subtitle>Continue Learning</Subtitle>
+          <Subtitle>{"Continue Learning".toUpperCase()}</Subtitle>
           <ScrollView
             horizontal={true}
             style={{ paddingBottom: 30 }}
@@ -117,7 +117,7 @@ export default function Homescreen () {
               </TouchableOpacity>
             ))}
           </ScrollView>
-          <Subtitle>Popular Courses</Subtitle>
+          <Subtitle>{"Popular Courses".toUpperCase()}</Subtitle>
           {/* <ScrollView
             horizontal={true}
             style={{ paddingBottom: 30 }}
