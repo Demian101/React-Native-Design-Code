@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Animated, Dimensions, StatusBar } from "react-native";
-import { useDispatch } from "react-redux";
 import { LinearGradient } from "expo-linear-gradient";
-import { store } from "../store";
 import styled from "styled-components/native";
 // import { Ionicons } from "@expo/vector-icons"; // old
 import Ionicons from '@expo/vector-icons/Ionicons';
+
+import { useSelector, useDispatch } from "react-redux";
+import { closeCard as clsCard, openCard as OpCard } from "../store/reducer/cardSlice";
+
 
 const { width, height } = Dimensions.get("window");
 const tabBarHeight = 83;
@@ -20,13 +22,16 @@ export default function Project(props) {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (cardOpened) {
-  //     store.dispatch({ type: "OPEN_CARD" });
-  //   } else {
-  //     store.dispatch({ type: "CLOSE_CARD" });
-  //   }
-  // }, [cardOpened]);
+  // const isOpen = useSelector(state => state.card.cardOpen);
+  // console.warn('isOpen', isOpen)
+
+  useEffect(() => {
+    if (cardOpened) {
+      dispatch(OpCard("OPEN_CARD"));
+    } else {
+      dispatch(clsCard("CLOSE_CARD"));
+    }
+  }, [cardOpened]);
 
   function openCard() {
     if (!props.canOpen) return;

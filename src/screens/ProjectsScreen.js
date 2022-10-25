@@ -3,7 +3,11 @@ import { PanResponder, Animated } from "react-native";
 import styled from "styled-components/native";
 import Project from "../components/Project";
 import projects from "../data/projects";
+
 import { store } from "../store";
+import { useSelector, useDispatch } from "react-redux";
+import {closeMenu, openMenu } from "../store/reducer/profileSlice";
+
 
 function getNextIndex(index) {
   var nextIndex = index + 1;
@@ -15,7 +19,7 @@ function getNextIndex(index) {
 
 export default function ProjectsScreen() {
 
-  /*
+
   const [index, setIndex] = useState(0);
   const [pan, setPan] = useState(new Animated.ValueXY());
   const [maskOpacity, setMaskOpacity] = useState(new Animated.Value(0));
@@ -26,7 +30,8 @@ export default function ProjectsScreen() {
     new Animated.Value(-50)
   );
 
-  const action = store.getState().app.action;
+  // const action = store.getState().app.action;
+  const isOpen = useSelector(state => state.profile.profileOpen);
 
   const panResponder = useMemo(() => {
     return PanResponder.create({
@@ -34,7 +39,8 @@ export default function ProjectsScreen() {
         if (gestureState.dx === 0 && gestureState.dy === 0) {
           return false;
         } else {
-          if (store.getState().app.action === "openCard") {
+          // if (store.getState().app.action === "openCard") {
+          if (isOpen) {
           } else {
             return true;
           }
@@ -116,24 +122,24 @@ export default function ProjectsScreen() {
       },
     });
   }, [index]);
-  */
+
   return (
     <Container>
-      {/* <AnimatedMask style={{ opacity: maskOpacity }} />
+      <AnimatedMask style={{ opacity: maskOpacity }} />
       <Animated.View
         style={{
           transform: [{ translateX: pan.x }, { translateY: pan.y }],
         }}
         {...panResponder.panHandlers}
-      > */}
+      >
         <Project
-          title={projects[1].title}
-          image={projects[1].image}
-          author={projects[1].author}
-          text={projects[1].text}
+          title={projects[index].title}
+          image={projects[index].image}
+          author={projects[index].author}
+          text={projects[index].text}
           canOpen={true}
         />
-      {/* </Animated.View> */}
+      </Animated.View>
     </Container>
   )
 }
@@ -154,3 +160,5 @@ const Mask = styled.View`
   background: rgba(0, 0, 0, 0.25);
   z-index: -3;
 `;
+
+const AnimatedMask = Animated.createAnimatedComponent(Mask);
